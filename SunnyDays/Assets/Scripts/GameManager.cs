@@ -5,22 +5,62 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-    public float levelStartDelay = 1f;                  //How long to wait before starting each new level
+    public float levelStartDelay = 1f;                  //How long to wait before starting next level
+    public static GameManager instance = null;
     public Text verbText;
 
-	// Use this for initialization
-	void Start () {
-        verbText.text = "Push!";
+    void Awake()
+    {
+		
+        if (instance == null)
+            instance = this;
+        else if (instance != null)
+            Destroy(gameObject);
+
+        //DontDestroyOnLoad(gameObject);
+        
+    }
+
+    // Use this for initialization
+    void Start () {
+        SetVerbText();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
 
-    public IEnumerable NextLevel()
+    }
+
+    /// <summary>
+    /// Calls the next level in the game
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator NextLevel()
     {
+        SetVerbText("Yay!");
         yield return new WaitForSeconds(levelStartDelay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);					//Load the next scene
+
+    }
+
+    /// <summary>
+    /// Sets the verb text at the top of the screen based on which level we're in
+    /// </summary>
+    public void SetVerbText()
+    {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "Push":
+                verbText.text = "Push!";
+                break;
+            case "Grow":
+                verbText.text = "Grow!";
+                break;       
+        }
+    }
+
+    public void SetVerbText(string text)
+    {
+        verbText.text = text;
     }
 }
