@@ -44,21 +44,6 @@ public class GameManager : MonoBehaviour {
     public void SetVerbText()
     {
         verbText.text = SceneManager.GetActiveScene().name + "!";
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "Push":
-                verbText.text = "Push!";
-                break;
-            case "Grow":
-                verbText.text = "Grow!";
-                break;
-            case "Run":
-                verbText.text = "Run!";
-                break; 
-			case "PickOne":
-				verbText.text = "Pick One!";
-				break;
-        }
     }
 
     public void SetVerbText(string text)

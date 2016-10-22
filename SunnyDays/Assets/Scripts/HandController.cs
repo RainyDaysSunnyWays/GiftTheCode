@@ -7,18 +7,29 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+//TODO: Make a "whoosh" animation for misses
 
 public class HandController : MonoBehaviour {
 
-    public Transform farEnd;
+    public Transform farEnd;                                        //where the hand will move to in its path across the screen
     private Vector3 frometh;
     private Vector3 untoeth;
-    public float secondsForOneLength = 20f;
+    private bool highfiving = false;                                //Check if the high-fiving is currently happening               
+    public float secondsForOneLength = 20f;                         //The amount of time it will take for the moving hand to reach the end of the screen
 
-    public Transform highFiveLocation;
+    public Transform highFiveLocation;                              //Where the high five will take place
+    public Transform faceSlapLocation;                              //Where the face slap will take place
 
-    bool inHandTrigger = false;
-    bool inFaceTrigger = false;
+    bool inHandTrigger = false;                                     //Check if in the hand trigger area
+    bool inFaceTrigger = false;                                     //Check if in the face trigger area
+
+    public SealController sealController;
+
+    public float highFiveDuration = 2f;
+    public float faceSlapDuration = 0.5f;
+
+    public AudioSource sfxSource;
+
 
     void Start()
     {
@@ -28,20 +39,23 @@ public class HandController : MonoBehaviour {
 
     void Update()
     {
-        transform.position = Vector3.Lerp(frometh, untoeth,
-         Mathf.SmoothStep(0f, 1f,
-          Mathf.PingPong(Time.time / secondsForOneLength, 1f)
-        ));
+        if (!highfiving)
+        {
+            transform.position = Vector3.Lerp(frometh, untoeth,
+             Mathf.SmoothStep(0f, 1f,
+              Mathf.PingPong(Time.time / secondsForOneLength, 1f)
+            ));
+        }
 
         if (Input.GetKey(KeyCode.Space))
         {
             if (inHandTrigger)
             {
-                HighFive();
+                StartCoroutine(HighFive());
             }
             else if (inFaceTrigger)
             {
-                FaceSlap();
+                StartCoroutine(FaceSlap());
             }
         }
     }
@@ -75,18 +89,39 @@ public class HandController : MonoBehaviour {
         }
     }
 
-    void HighFive()
+    IEnumerator HighFive()
     {
+        highfiving = true;
+        sfxSource.Play();
+        yield return new WaitForSeconds(0.3f);                          //Sound takes a while to play - lag until it is ready
+        //High-five animation for source hand
+        transform.position = Vector3.Lerp(transform.position, highFiveLocation.position,
+            Mathf.SmoothStep(0f, 1f, 1f));
+
+        //Make the seal sprite happy!
+        StartCoroutine(sealController.MakeSealHappy());
+        
+        yield return new WaitForSeconds(highFiveDuration);
+
+        highfiving = false;
         Debug.Log("High-Five!");
-        //TODO: High-five animation
-        //TODO: Add a slap sound!
     }
 
-    void FaceSlap()
+    IEnumerator FaceSlap()
     {
         Debug.Log("Face Slap!");
-        //TODO: Face slap animation
-        //TODO: Add slap and "ow!" sounds
+        sfxSource.Play();
+        yield return new WaitForSeconds(0.3f);                          //Sound takes a while to play - lag until it is ready
+        //Face slap animation
+        transform.position = Vector3.Lerp(transform.position, faceSlapLocation.position,
+            Mathf.SmoothStep(0f, 1f, 1f));
+
+        //Make the seal sprite sad!
+        StartCoroutine(sealController.MakeSealSad());
+        
+
+        yield return new WaitForSeconds(faceSlapDuration);
+
     }
 }
 
