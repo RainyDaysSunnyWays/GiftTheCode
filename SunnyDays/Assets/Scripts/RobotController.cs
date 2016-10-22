@@ -35,6 +35,7 @@ public class RobotController : MonoBehaviour {
 		// Make sure he stops at the finish line
 		rb.drag = 100f;
         animator.SetTrigger("robotWin");
+
 		// Go to the next level
 		StartCoroutine(GameManager.instance.NextLevel());
 
