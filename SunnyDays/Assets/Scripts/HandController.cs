@@ -15,6 +15,8 @@ public class HandController : MonoBehaviour {
     private Vector3 untoeth;
     public float secondsForOneLength = 20f;
 
+    public Transform highFiveLocation;
+
     bool inHandTrigger = false;
     bool inFaceTrigger = false;
 
@@ -77,12 +79,14 @@ public class HandController : MonoBehaviour {
     {
         Debug.Log("High-Five!");
         //TODO: High-five animation
+        //TODO: Add a slap sound!
     }
 
     void FaceSlap()
     {
         Debug.Log("Face Slap!");
         //TODO: Face slap animation
+        //TODO: Add slap and "ow!" sounds
     }
 }
 
