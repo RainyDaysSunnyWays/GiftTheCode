@@ -32,7 +32,7 @@ public class SealController : MonoBehaviour {
     public IEnumerator MakeSealSad()
     {
         spriteRenderer.sprite = sadSeal;
-        yield return new WaitForSeconds(handController.highFiveDuration);
+        yield return new WaitForSeconds(handController.faceSlapDuration * 3);
         MakeSealIdle();
     }
 
