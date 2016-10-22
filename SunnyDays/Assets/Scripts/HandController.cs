@@ -28,7 +28,8 @@ public class HandController : MonoBehaviour {
     public float highFiveDuration = 2f;
     public float faceSlapDuration = 0.5f;
 
-    public AudioSource sfxSource;
+    public AudioSource slapSFX;
+    public AudioSource whooshSFX;
 
 
     void Start()
@@ -92,7 +93,7 @@ public class HandController : MonoBehaviour {
     IEnumerator HighFive()
     {
         highfiving = true;
-        sfxSource.Play();
+        slapSFX.Play();
         yield return new WaitForSeconds(0.3f);                          //Sound takes a while to play - lag until it is ready
         //High-five animation for source hand
         transform.position = Vector3.Lerp(transform.position, highFiveLocation.position,
@@ -104,13 +105,11 @@ public class HandController : MonoBehaviour {
         yield return new WaitForSeconds(highFiveDuration);
 
         highfiving = false;
-        Debug.Log("High-Five!");
     }
 
     IEnumerator FaceSlap()
     {
-        Debug.Log("Face Slap!");
-        sfxSource.Play();
+        slapSFX.Play();
         yield return new WaitForSeconds(0.3f);                          //Sound takes a while to play - lag until it is ready
         //Face slap animation
         transform.position = Vector3.Lerp(transform.position, faceSlapLocation.position,
@@ -122,6 +121,17 @@ public class HandController : MonoBehaviour {
 
         yield return new WaitForSeconds(faceSlapDuration);
 
+    }
+
+    IEnumerator AirSlap()
+    {
+        whooshSFX.Play();
+        yield return new WaitForSeconds(1f);
+        //Air slap animation
+        Vector3 endPos = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, endPos,
+            Mathf.SmoothStep(0f, 1f, 1f));
+        yield return new WaitForSeconds(faceSlapDuration);
     }
 }
 
