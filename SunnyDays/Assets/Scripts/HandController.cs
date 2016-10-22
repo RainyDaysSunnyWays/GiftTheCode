@@ -7,6 +7,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+//TODO: Make a "whoosh" animation for misses
 
 public class HandController : MonoBehaviour {
 
@@ -26,6 +27,8 @@ public class HandController : MonoBehaviour {
 
     public float highFiveDuration = 2f;
     public float faceSlapDuration = 0.5f;
+
+    public AudioSource sfxSource;
 
 
     void Start()
@@ -89,16 +92,16 @@ public class HandController : MonoBehaviour {
     IEnumerator HighFive()
     {
         highfiving = true;
-
+        sfxSource.Play();
+        yield return new WaitForSeconds(0.3f);                          //Sound takes a while to play - lag until it is ready
         //High-five animation for source hand
         transform.position = Vector3.Lerp(transform.position, highFiveLocation.position,
             Mathf.SmoothStep(0f, 1f, 1f));
 
         //Make the seal sprite happy!
         StartCoroutine(sealController.MakeSealHappy());
-
+        
         yield return new WaitForSeconds(highFiveDuration);
-        //TODO: Add a slap sound!
 
         highfiving = false;
         Debug.Log("High-Five!");
@@ -107,16 +110,17 @@ public class HandController : MonoBehaviour {
     IEnumerator FaceSlap()
     {
         Debug.Log("Face Slap!");
+        sfxSource.Play();
+        yield return new WaitForSeconds(0.3f);                          //Sound takes a while to play - lag until it is ready
         //Face slap animation
         transform.position = Vector3.Lerp(transform.position, faceSlapLocation.position,
             Mathf.SmoothStep(0f, 1f, 1f));
 
         //Make the seal sprite sad!
         StartCoroutine(sealController.MakeSealSad());
+        
 
         yield return new WaitForSeconds(faceSlapDuration);
-        //TODO: Add slap and "ow!" sounds
-
 
     }
 }

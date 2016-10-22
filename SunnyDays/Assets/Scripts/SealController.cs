@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/*
+ * Sound for the seal provided by http://www.freesfx.co.uk. This link should be included in the game's credits as per the License agreement
+ */
+
+using UnityEngine;
 using System.Collections;
 
 public class SealController : MonoBehaviour {
