@@ -58,6 +58,10 @@ public class HandController : MonoBehaviour {
             {
                 StartCoroutine(FaceSlap());
             }
+            else
+            {
+                StartCoroutine(AirSlap());
+            }
         }
     }
 
@@ -126,9 +130,9 @@ public class HandController : MonoBehaviour {
     IEnumerator AirSlap()
     {
         whooshSFX.Play();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         //Air slap animation
-        Vector3 endPos = new Vector3(transform.position.x, transform.position.y + 10, transform.position.z);
+        Vector3 endPos = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, endPos,
             Mathf.SmoothStep(0f, 1f, 1f));
         yield return new WaitForSeconds(faceSlapDuration);
