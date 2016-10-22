@@ -15,8 +15,6 @@ public class PickOneController : MonoBehaviour {
 
 	bool inSelectTrigger = false;
 	bool timeStop 		 = false;
-//	bool notInTrigger    = false;
-
 
 	void Start(){
 		sportLevel 	 = GameObject.Find ("SportsLevel");
@@ -77,12 +75,7 @@ public class PickOneController : MonoBehaviour {
 			} else {
 				Debug.Log ("pressed space not in the right area");
 			}
-
-//			if (timeStop) {
-//				timeCounter += Time.deltaTime * speed;
-//			}
 		}
-
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
