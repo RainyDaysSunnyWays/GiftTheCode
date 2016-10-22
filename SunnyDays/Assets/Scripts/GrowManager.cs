@@ -7,6 +7,8 @@ public class GrowManager : MonoBehaviour {
     private int currentShownPlantIndex;                                 //The number of the plant currently being shown
     private GameObject currentShownPlant;                               //The actual game object of the plant being shown;
     private List<GameObject> plants;                                           //A list of all the plant objects in the scene
+	public HitManager hitManager;
+	public BarController barController;
 
     public GameObject plant0;
     public GameObject plant1;
@@ -24,11 +26,13 @@ public class GrowManager : MonoBehaviour {
 
         currentShownPlantIndex = 0;
         currentShownPlant = plants[currentShownPlantIndex] as GameObject;
+	
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetKeyDown(KeyCode.Space))
+		if (Input.GetKeyDown(KeyCode.Space) && hitManager.isValid)
         {
             GrowPlant();
         }
@@ -45,6 +49,7 @@ public class GrowManager : MonoBehaviour {
             currentShownPlant = plants[currentShownPlantIndex] as GameObject;
             //Enable the new plant image
             currentShownPlant.SetActive(true);
+
         }
         else
         {
