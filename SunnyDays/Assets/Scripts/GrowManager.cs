@@ -9,6 +9,7 @@ public class GrowManager : MonoBehaviour {
     private List<GameObject> plants;                                           //A list of all the plant objects in the scene
 	public HitManager hitManager;
 	public BarController barController;
+	public HitSensorController hitSensorController;
 
     public GameObject plant0;
     public GameObject plant1;
@@ -49,6 +50,9 @@ public class GrowManager : MonoBehaviour {
             currentShownPlant = plants[currentShownPlantIndex] as GameObject;
             //Enable the new plant image
             currentShownPlant.SetActive(true);
+
+			// Extend the Bar
+			hitSensorController.changeBars();
 
         }
         else
