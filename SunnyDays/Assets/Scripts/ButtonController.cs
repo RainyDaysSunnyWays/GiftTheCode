@@ -2,13 +2,6 @@
 using System.Collections;
 
 public class ButtonController : MonoBehaviour {
-
-    private SpriteRenderer sprite;
-
-	// Use this for initialization
-	void Start () {
-
-	}
 	
 	// Update is called once per frame
 	void Update () {

@@ -25,11 +25,6 @@ public class GameManager : MonoBehaviour {
     void Start () {
         SetVerbText();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-
-    }
 
     /// <summary>
     /// Calls the next level in the game
@@ -55,7 +50,10 @@ public class GameManager : MonoBehaviour {
                 break;
             case "Grow":
                 verbText.text = "Grow!";
-                break;       
+                break;
+            case "Run":
+                verbText.text = "Run!";
+                break; 
         }
     }
 
