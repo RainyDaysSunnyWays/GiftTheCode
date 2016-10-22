@@ -6,6 +6,7 @@ public class HitSensorController : MonoBehaviour {
 	private int currentBarIndex = 0;
 	private List<GameObject> bars;
 
+	public HitManager hitManager;
 	public GameObject bar0;
 	public GameObject bar1;
 	public GameObject bar2;
@@ -32,6 +33,7 @@ public class HitSensorController : MonoBehaviour {
 			bars [currentBarIndex].SetActive (false);
 			currentBarIndex += 1;
 			bars [currentBarIndex].SetActive (true);
+			hitManager.offTarget ();
 		}
 	}
 }

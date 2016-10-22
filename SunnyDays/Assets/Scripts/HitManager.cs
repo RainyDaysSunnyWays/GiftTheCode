@@ -28,14 +28,25 @@ public class HitManager : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		Debug.Log ("collided with: " + other.gameObject.name);
-		isValid = true;
-		verbText.text = "Grow!";
+		onTarget ();
 
 	}
 
 	void OnTriggerExit2D(Collider2D other){
 		Debug.Log ("Exited collision with: " + other.gameObject.name);
+		offTarget ();
+
+	}
+
+	public void offTarget(){
 		isValid = false;
-		verbText.text = "Wait...";
+		if (!verbText.text.Equals ("Yay!")) {
+			verbText.text = "Wait...";
+		}
+	}
+
+	public void onTarget(){
+		isValid = true;
+		verbText.text = "Grow!";
 	}
 }
