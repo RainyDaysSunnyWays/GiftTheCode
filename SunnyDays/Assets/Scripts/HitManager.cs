@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class HitManager : MonoBehaviour {
 	public bool isValid = false;
 	public int moveSpeed = 1;
-	public float hitAccel = 20f;
+	public Text verbText;
+
 
 	public Transform farEnd;
 	private Vector3 frometh;
@@ -26,13 +28,14 @@ public class HitManager : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other){
 		Debug.Log ("collided with: " + other.gameObject.name);
-
-			isValid = true;
+		isValid = true;
+		verbText.text = "Grow!";
 
 	}
 
 	void OnTriggerExit2D(Collider2D other){
 		Debug.Log ("Exited collision with: " + other.gameObject.name);
-			isValid = false;
+		isValid = false;
+		verbText.text = "Wait...";
 	}
 }
