@@ -54,6 +54,9 @@ public class GameManager : MonoBehaviour {
             case "Run":
                 verbText.text = "Run!";
                 break; 
+			case "PickOne":
+				verbText.text = "Pick One!";
+				break;
         }
     }
 
