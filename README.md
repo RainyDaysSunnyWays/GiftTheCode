@@ -4,7 +4,7 @@ Pikit is a game for those who lack fine motor control or who have limited mobili
 
 Pikit can help players learn how to use a single switch to choose menu options.
 
-Try it out [here](https://rainydayssunnyways.github.io/GiftTheCode/)!
+Try it out here!
 
 ##About
 
