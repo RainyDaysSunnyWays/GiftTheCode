@@ -14,6 +14,8 @@ public class PickOneController : MonoBehaviour {
 	public GameObject animalLevel;
 	public GameObject natureLevel;
 	public GameObject select;
+	public AudioSource ohno;
+	public AudioSource yay;
 
 	bool inSelectTrigger = false;
 	bool timeStop 		 = false;
@@ -29,7 +31,6 @@ public class PickOneController : MonoBehaviour {
 		select = GameObject.Find ("Select");
 
         GameManager.instance.SetVerbText("Pick Basketball!");
-
 	}
 
 	void Update() {
@@ -76,8 +77,10 @@ public class PickOneController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Space)) {
 			if (inSelectTrigger && gameObject.Equals (sportLevel)) {
 				Select ();
+				yay.Play ();
 			} else {
 				textView.text = "Oops! That's not a basketball!";
+				ohno.Play ();
 			}
 		}
 	}

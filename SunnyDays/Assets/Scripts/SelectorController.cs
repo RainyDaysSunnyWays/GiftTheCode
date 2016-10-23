@@ -13,6 +13,8 @@ public class SelectorController : MonoBehaviour {
 	public GameObject option3;
 	public GameObject option4;
 	public GameObject option5;
+	public AudioSource youdidit;
+	public AudioSource ohno;
 	List<GameObject> options;
 	public Text verbText;
 
@@ -34,8 +36,10 @@ public class SelectorController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			if (currentOptionIndex != 4) {
 				verbText.text = "Oops! Who doesn't belong?";
+				ohno.Play ();
 			} else {
 				verbText.text = "Yay! Silly hedgehog!";
+				youdidit.Play ();
 				CancelInvoke ();
 				StartCoroutine(GameManager.instance.NextLevel ());
 			}

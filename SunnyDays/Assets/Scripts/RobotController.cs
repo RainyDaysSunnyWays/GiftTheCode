@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class RobotController : MonoBehaviour {
 	bool isSuccess;
 	public float stepSize = 20f;
+	public AudioSource iamarobot;
 	private Rigidbody2D rb;
     private Animator animator;
 	private GameObject replay;
@@ -16,7 +17,6 @@ public class RobotController : MonoBehaviour {
 		isSuccess = false;
 		rb = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
-
 		Scene scene = SceneManager.GetActiveScene();
 
 		// name of scene
@@ -24,6 +24,7 @@ public class RobotController : MonoBehaviour {
 			replay = GameObject.Find ("replay");
 			(replay.GetComponent ("Halo") as Behaviour).enabled = false;
 		}
+
 	}
 
 	// Update is called once per frame
@@ -49,7 +50,7 @@ public class RobotController : MonoBehaviour {
 		// Make sure he stops at the finish line
 		rb.drag = 100f;
         animator.SetTrigger("robotWin");
-
+		iamarobot.Play ();
 		if ((replay != null)) {
 			(replay.GetComponent("Halo") as Behaviour).enabled = !(replay.GetComponent("Halo") as Behaviour).enabled;
 
