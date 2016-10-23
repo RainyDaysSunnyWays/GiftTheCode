@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
     public Text verbText;
 
+
     void Awake()
     {
 		
@@ -38,27 +39,17 @@ public class GameManager : MonoBehaviour {
 
     }
 
+//	public IEnumerator Restart() {
+//		yield return new WaitForSeconds(levelStartDelay);
+//		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 5);					//Load the next scene
+//	}
+
     /// <summary>
     /// Sets the verb text at the top of the screen based on which level we're in
     /// </summary>
     public void SetVerbText()
     {
         verbText.text = SceneManager.GetActiveScene().name + "!";
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "Push":
-                verbText.text = "Push!";
-                break;
-            case "Grow":
-                verbText.text = "Grow!";
-                break;
-            case "Run":
-                verbText.text = "Run!";
-                break; 
-			case "PickOne":
-				verbText.text = "Pick One!";
-				break;
-        }
     }
 
     public void SetVerbText(string text)
