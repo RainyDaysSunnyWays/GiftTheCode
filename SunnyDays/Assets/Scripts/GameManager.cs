@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
     public Text verbText;
 
+
     void Awake()
     {
 		
@@ -25,6 +26,13 @@ public class GameManager : MonoBehaviour {
     void Start () {
         SetVerbText();
 	}
+
+    public IEnumerator ShowStats()
+    {
+
+        yield return new WaitForSeconds(5);
+        StartCoroutine(NextLevel());
+    }
 
     /// <summary>
     /// Calls the next level in the game
