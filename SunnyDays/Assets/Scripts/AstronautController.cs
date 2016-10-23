@@ -23,9 +23,16 @@ public class AstronautController : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if (jump) {
+		if (jump) { 
 			rb2d.AddForce (new Vector2 (0f, jumpForce));
 			jump = false;
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.gameObject.CompareTag ("Star")) {
+			other.gameObject.SetActive (false);
+		}
+	}
+
 }
