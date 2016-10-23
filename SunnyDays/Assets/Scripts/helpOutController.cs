@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HelpOutController : MonoBehaviour {
 
 	public float speed;
 	public int radius;
 	float timeCounter = 0;
+	public Text textView;
 
 	private GameObject bootLevel;
-    private GameObject shirtLevel;
-    private GameObject tieLevel;
-    private GameObject pantsLevel;
-    private GameObject select;
+	private GameObject shirtLevel;
+	private GameObject tieLevel;
+	private GameObject pantsLevel;
+	private GameObject select;
 
 	bool inSelectTrigger = false;
 	bool timeStop 		 = false;
@@ -71,8 +74,13 @@ public class HelpOutController : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.Space)) {
 			if (inSelectTrigger) {
-				Select();
+				if(gameObject.Equals(bootLevel)){
+
+					textView.text = "Yay!";
+					Select();
+				} 
 			} else {
+				textView.text = "Oops! That foot sure looks cold!";
 				Debug.Log ("pressed space not in the right area");
 			}
 		}
@@ -108,6 +116,6 @@ public class HelpOutController : MonoBehaviour {
 		} else if (gameObject == tieLevel) {
 			Debug.Log ("tie Level");
 		}
-        StartCoroutine(GameManager.instance.NextLevel());
+		StartCoroutine(GameManager.instance.NextLevel());
 	}
 }
