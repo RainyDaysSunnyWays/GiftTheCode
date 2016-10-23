@@ -3,14 +3,17 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class RobotController : MonoBehaviour {
-	bool isSuccess = false;
+	bool isSuccess;
 	public float stepSize = 20f;
 	private Rigidbody2D rb;
     private Animator animator;
 	private GameObject replay;
 
+	private bool doRestart = false;
+
 	// Use this for initialization
 	void Start () {
+		isSuccess = false;
 		rb = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
 
@@ -29,7 +32,10 @@ public class RobotController : MonoBehaviour {
 
 			if (isSuccess) {
 				StartCoroutine (GameManager.instance.NextLevel ());
-			} else {
+			} else if(doRestart){
+				SceneManager.LoadScene("Push");	
+
+			}else {
                 animator.SetTrigger("robotWalk");
 				rb.AddForce(new Vector2(70, 0));
                 animator.SetTrigger("robotIdle");
@@ -44,10 +50,19 @@ public class RobotController : MonoBehaviour {
 		rb.drag = 100f;
         animator.SetTrigger("robotWin");
 
-		(replay.GetComponent("Halo") as Behaviour).enabled = !(replay.GetComponent("Halo") as Behaviour).enabled;
+		if ((replay != null)) {
+			(replay.GetComponent("Halo") as Behaviour).enabled = !(replay.GetComponent("Halo") as Behaviour).enabled;
 
-		if ((replay.GetComponent ("Halo") as Behaviour).enabled) {
-			SceneManager.LoadScene("Push");	
+		}
+
+
+
+		if ((replay != null) && ((replay.GetComponent ("Halo") as Behaviour).enabled)) {
+			doRestart = true;		
+			isSuccess = false;
+
+
+
 		} else {
 			// Go to the next level
 			StartCoroutine(GameManager.instance.NextLevel());
