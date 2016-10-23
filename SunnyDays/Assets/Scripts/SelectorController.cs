@@ -37,7 +37,7 @@ public class SelectorController : MonoBehaviour {
 			} else {
 				verbText.text = "Yay! Silly hedgehog!";
 				CancelInvoke ();
-				GameManager.instance.NextLevel ();
+				StartCoroutine(GameManager.instance.NextLevel ());
 			}
 		}
 	}
