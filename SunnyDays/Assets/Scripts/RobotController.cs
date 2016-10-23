@@ -16,7 +16,6 @@ public class RobotController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			Debug.Log ("space pressed");
 
 			if (isSuccess) {
 				StartCoroutine (GameManager.instance.NextLevel ());

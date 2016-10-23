@@ -72,43 +72,31 @@ public class PickOneController : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Space)) {
 			if (inSelectTrigger) {
 				Select();
-			} else {
-				Debug.Log ("pressed space not in the right area");
-			}
+			} 
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-			Debug.Log("Entered select");  
 
 		(gameObject.GetComponent("Halo") as Behaviour).enabled = !(gameObject.GetComponent("Halo") as Behaviour).enabled;
 		if (other.gameObject.CompareTag("Select")) {
 			inSelectTrigger = true;
+            Debug.Log("inSelectTrigger is true");
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-			Debug.Log("exit Select");
 			
 		(gameObject.GetComponent("Halo") as Behaviour).enabled = !(gameObject.GetComponent("Halo") as Behaviour).enabled;
 		if (other.gameObject.CompareTag("Select")) {
 			inSelectTrigger = false;
-		}
+            Debug.Log("inSelectTrigger is false");
+        }
 	}
 
 	void Select() {
-		Time.timeScale = 0;
+        StartCoroutine(GameManager.instance.NextLevel());
+        //Time.timeScale = 0;
 		timeStop = true;
-//		Debug.Log ("inside select"); 
-//		Debug.Log ("the objectBody " + gameObject); 
-		if (gameObject == scienceLevel) {
-			Debug.Log ("science Level");
-		} else if (gameObject == sportLevel) {
-			Debug.Log ("sports Level");
-		} else if (gameObject == natureLevel) {
-			Debug.Log ("nature Level");
-		} else if (gameObject == animalLevel) {
-			Debug.Log ("animal Level");
-		}
 	}
 }
