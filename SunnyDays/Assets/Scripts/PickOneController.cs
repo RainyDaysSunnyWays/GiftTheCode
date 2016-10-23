@@ -26,6 +26,8 @@ public class PickOneController : MonoBehaviour {
 
 		select = GameObject.Find ("Select");
 
+        GameManager.instance.SetVerbText("Pick Basketball!");
+
 	}
 
 	void Update() {
