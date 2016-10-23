@@ -24,3 +24,8 @@ Pikit was developed by a team of 6 people over the course of a weekend at the [G
 * [Kevin Hugh](http://kevinhugh.com)
 * [Mahtab Sabet](https://ca.linkedin.com/in/mahtabsabet)
 * [Mandeep Wraich](https://github.com/mwraich)
+
+
+###Resources
+* Some sounds from http://www.freesfx.co.uk
+* Some code provided by user [duck](http://answers.unity3d.com/users/82/duck.html) at answers.Unity3D.com
