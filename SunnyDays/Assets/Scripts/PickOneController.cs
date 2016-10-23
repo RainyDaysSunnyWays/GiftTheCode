@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PickOneController : MonoBehaviour {
-
+	public Text textView;
 	public float speed;
 	public int radius;
 	float timeCounter = 0;
@@ -70,11 +72,14 @@ public class PickOneController : MonoBehaviour {
 		}
 
 		if (Input.GetKey (KeyCode.Space)) {
-			if (inSelectTrigger) {
-				Select();
-			} 
+			if (inSelectTrigger && gameObject.Equals (sportLevel)) {
+				Select ();
+			} else {
+				textView.text = "Oops! That's not a basketball!";
+			}
 		}
 	}
+
 
 	void OnTriggerEnter2D(Collider2D other) {
 
@@ -95,6 +100,10 @@ public class PickOneController : MonoBehaviour {
 	}
 
 	void Select() {
+		Debug.Log ("about to change textview text");
+
+		textView.text = "Yay!";
+
         StartCoroutine(GameManager.instance.NextLevel());
         //Time.timeScale = 0;
 		timeStop = true;
