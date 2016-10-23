@@ -8,7 +8,7 @@ Try it out here!
 
 ##About
 
-Pikit was developed by a team of 6 people over the course of a weekend at the [GiftTheCode](www.giftthecode.ca) hackathon. It was created for the [Holland Bloorview Kids Rehabilitation Hospital](http://hollandbloorview.ca/Home), and it free and open to use for any other charitable or personal use!
+Pikit was developed by a team of 6 people over the course of a weekend at the [GiftTheCode](http://www.giftthecode.ca) hackathon. It was created for the [Holland Bloorview Kids Rehabilitation Hospital](http://hollandbloorview.ca/Home), and it free and open to use for any other charitable or personal use!
 
 ---
 
