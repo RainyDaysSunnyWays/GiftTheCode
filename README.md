@@ -17,10 +17,10 @@ Pikit was developed by a team of 6 people over the course of a weekend at the [G
 * [Erin Hong](www.serinhong.com)
 
 ###Business Requirements and Research: 
-* [Naina Sethi] (www.nainasethi.squarespace.com]
+* [Naina Sethi](http://nainasethi.squarespace.com)
 
 ###Developers: 
-* [Pandit Adhilaga-Dres] (https://www.linkedin.com/in/panditadhilagadres)
-* [Kevin Hugh] (www.kevinhugh.com)
-* [Mahtab Sabet] (https://ca.linkedin.com/in/mahtabsabet)
-* [Mandeep Wraich] (https://github.com/mwraich)
+* [Pandit Adhilaga-Dres](https://www.linkedin.com/in/panditadhilagadres)
+* [Kevin Hugh](www.kevinhugh.com)
+* [Mahtab Sabet](https://ca.linkedin.com/in/mahtabsabet)
+* [Mandeep Wraich](https://github.com/mwraich)
