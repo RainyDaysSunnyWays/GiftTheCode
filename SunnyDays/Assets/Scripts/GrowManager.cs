@@ -33,10 +33,14 @@ public class GrowManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Space) && hitManager.isValid)
-        {
-            GrowPlant();
-        }
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			Debug.Log ("select pressed. hitmanager says: " + hitManager.isValid);
+			if (hitManager.isValid) {
+				{
+					GrowPlant ();
+				}
+			}
+		}
 	}
 
     public void GrowPlant()

@@ -18,7 +18,7 @@ public class HitManager : MonoBehaviour {
 		frometh = transform.position;
 		untoeth = farEnd.position;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		transform.position = Vector2.Lerp(frometh, untoeth, Mathf.SmoothStep(
