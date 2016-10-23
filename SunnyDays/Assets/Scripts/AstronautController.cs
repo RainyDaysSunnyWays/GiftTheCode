@@ -16,9 +16,13 @@ public class AstronautController : MonoBehaviour {
 
 	void Awake () {
 		rb2d = GetComponent<Rigidbody2D> ();
-        GameManager.instance.SetVerbText("Catch!");
         jump = false;
 	}
+
+    void Start()
+    {
+        GameManager.instance.SetVerbText("Catch!");
+    }
 		
 	void Update () {
         if (score == 9)

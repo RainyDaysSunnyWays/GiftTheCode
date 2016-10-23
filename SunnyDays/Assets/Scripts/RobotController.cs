@@ -12,6 +12,7 @@ public class RobotController : MonoBehaviour {
 
 	private bool doRestart = false;
 
+
 	// Use this for initialization
 	void Start () {
 		isSuccess = false;
