@@ -20,7 +20,7 @@ Pikit was developed by a team of 6 people over the course of a weekend at the [G
 * [Naina Sethi](www.nainasethi.squarespace.com]
 
 ###Developers: 
-* [Kevin Hugh](www.kevinhugh.com)
 * [Pandit Adhilaga-Dres] (https://www.linkedin.com/in/panditadhilagadres)
+* [Kevin Hugh](www.kevinhugh.com)
 * [Mahtab Sabet] (https://ca.linkedin.com/in/mahtabsabet)
 * [Mandeep Wraich] (https://github.com/mwraich)
