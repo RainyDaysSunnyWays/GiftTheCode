@@ -8,19 +8,19 @@ Try it out here!
 
 ##About
 
-Pikit was developed by a team of 6 people over the course of a weekend at the [GiftTheCode](www.giftthecode.ca) hackathon. It was created for the [Holland Bloorview Kids Rehabilitation Hospital](http://hollandbloorview.ca/Home), and it free and open to use for any other charitable or personal use!
+Pikit was developed by a team of 6 people over the course of a weekend at the [GiftTheCode](http://www.giftthecode.ca) hackathon. It was created for the [Holland Bloorview Kids Rehabilitation Hospital](http://hollandbloorview.ca/Home), and it free and open to use for any other charitable or personal use!
 
 ---
 
 ##Credits:
 ###Artist / Designer: 
-* Erin
+* [Erin Hong](http://www.serinhong.com)
 
 ###Business Requirements and Research: 
-* Nania
+* [Naina Sethi](http://nainasethi.squarespace.com)
 
 ###Developers: 
-* Kevin Hugh
-* Pandit
-* Mahtab Sabet
-* Mandeep
+* [Pandit Adhilaga-Dres](https://www.linkedin.com/in/panditadhilagadres)
+* [Kevin Hugh](http://kevinhugh.com)
+* [Mahtab Sabet](https://ca.linkedin.com/in/mahtabsabet)
+* [Mandeep Wraich](https://github.com/mwraich)
