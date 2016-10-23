@@ -46,6 +46,11 @@ public class GameManager : MonoBehaviour {
 
     }
 
+//	public IEnumerator Restart() {
+//		yield return new WaitForSeconds(levelStartDelay);
+//		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 5);					//Load the next scene
+//	}
+
     /// <summary>
     /// Sets the verb text at the top of the screen based on which level we're in
     /// </summary>
