@@ -9,6 +9,8 @@ public class HelpOutController : MonoBehaviour {
 	public int radius;
 	float timeCounter = 0;
 	public Text textView;
+	public AudioSource oops;
+	public AudioSource yay;
 
 	private GameObject bootLevel;
 	private GameObject shirtLevel;
@@ -78,10 +80,12 @@ public class HelpOutController : MonoBehaviour {
 
 					textView.text = "Yay!";
 					Select();
+					yay.Play ();
 				} 
 			} else {
 				textView.text = "Oops! That foot sure looks cold!";
 				Debug.Log ("pressed space not in the right area");
+				oops.Play ();
 			}
 		}
 	}

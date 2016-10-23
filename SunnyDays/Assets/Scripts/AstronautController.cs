@@ -7,7 +7,7 @@ public class AstronautController : MonoBehaviour {
 	public float jumpForce = 600;
 	public Transform groundCheck;
 	public AudioSource boing;
-
+	public AudioSource youdidit;
     private int score;                                          //How many stars the astronaut has collected
 	
 
@@ -27,6 +27,7 @@ public class AstronautController : MonoBehaviour {
 	void Update () {
         if (score == 9)
         {
+			youdidit.Play ();
             StartCoroutine(GameManager.instance.NextLevel());
         }
         grounded = Physics2D.Linecast (transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
