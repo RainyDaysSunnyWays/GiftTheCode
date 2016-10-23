@@ -27,13 +27,6 @@ public class GameManager : MonoBehaviour {
         SetVerbText();
 	}
 
-    public IEnumerator ShowStats()
-    {
-
-        yield return new WaitForSeconds(5);
-        StartCoroutine(NextLevel());
-    }
-
     /// <summary>
     /// Calls the next level in the game
     /// </summary>
